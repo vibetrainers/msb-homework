@@ -1,0 +1,7 @@
+node_modules
+dev/uploads
+.DS_Store
+ADMIN_PASSWORD.txt
+supabase/.temp
+dist
+.claude

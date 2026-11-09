@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Домашнее задание · МСБ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=202611030531" />
+</head>
+<body>
+  <header class="topbar" id="topbar" hidden>
+    <a href="#/" class="brand"><span class="logo">ДЗ</span> Домашнее задание · МСБ</a>
+    <nav>
+      <a href="#/" data-nav="home">Задание</a>
+      <a href="#/base" data-nav="base">База ответов</a>
+      <a href="#/admin" data-nav="admin" id="adminNav" hidden>Админка</a>
+    </nav>
+    <div class="me">
+      <span id="meName" class="code"></span>
+      <button class="ghost small" id="logoutBtn">Выйти</button>
+    </div>
+  </header>
+
+  <main id="app"><div class="empty">Загрузка…</div></main>
+  <div class="toast" id="toast" role="status" hidden></div>
+
+  <template id="tpl-auth">
+    <section class="auth">
+      <div class="auth-card">
+        <div class="logo big">ДЗ</div>
+        <h1>Домашнее задание</h1>
+        <p class="muted">Академия продаж · МСБ · уровень MASTER</p>
+
+        <form id="codeForm" class="auth-form">
+          <label for="codeInput">Ваш код участника</label>
+          <input id="codeInput" name="code" class="code-input" autocomplete="off" autocapitalize="characters"
+                 spellcheck="false" placeholder="ABCD-2345" required />
+          <p class="error" id="codeError"></p>
+          <button type="submit" class="primary wide">Войти</button>
+          <p class="muted hint">Код выдаёт организатор обучения.</p>
+        </form>
+
+        <form id="adminForm" class="auth-form" hidden>
+          <label for="adminPassword">Пароль администратора</label>
+          <input id="adminPassword" name="password" type="password" autocomplete="current-password" required />
+          <p class="error" id="adminError"></p>
+          <button type="submit" class="primary wide">Войти как администратор</button>
+        </form>
+
+        <button type="button" class="linkish switch" id="authSwitch">Вход для администратора</button>
+      </div>
+    </section>
+  </template>
+
+  <script src="config.js?v=202611030531"></script>
+  <script src="app.js?v=202611030531"></script>
+</body>
+</html>

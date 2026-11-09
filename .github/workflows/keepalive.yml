@@ -1,0 +1,26 @@
+# Раз в 3 дня обращается к базе, чтобы бесплатный проект Supabase не уходил на паузу
+# (Supabase приостанавливает проекты без запросов 7 дней).
+name: Keep database awake
+
+on:
+  schedule:
+    - cron: "0 3 */3 * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ping Supabase
+        run: |
+          URL=$(sed -n 's/.*supabaseUrl: *"\([^"]*\)".*/\1/p' docs/config.js)
+          KEY=$(sed -n 's/.*supabaseKey: *"\([^"]*\)".*/\1/p' docs/config.js)
+          if [ -z "$URL" ] || [ -z "$KEY" ]; then
+            echo "docs/config.js ещё не заполнен — пропускаю"
+            exit 0
+          fi
+          curl -fsS -X POST "$URL/rest/v1/rpc/get_config" \
+            -H "apikey: $KEY" -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
+            -d '{}' > /dev/null
+          echo "База ответила"

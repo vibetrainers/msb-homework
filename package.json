@@ -1,0 +1,12 @@
+{
+  "name": "domashki-msb",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev/mock-supabase.mjs",
+    "stamp": "node dev/stamp.mjs"
+  },
+  "devDependencies": {
+    "pg": "^8.23.1"
+  }
+}
