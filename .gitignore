@@ -5,3 +5,6 @@ ADMIN_PASSWORD.txt
 supabase/.temp
 dist
 .claude
+.secrets.env
+supabase/.temp
+КОДЫ_УЧАСТНИКОВ.txt
