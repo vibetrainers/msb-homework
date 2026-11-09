@@ -57,7 +57,7 @@ revoke all on public.participants, public.answers, public.settings, public.likes
 
 insert into public.settings (key, value) values
   ('branches', '[]'),
-  ('products', '["Кредит для бизнеса", "Расчётный счёт (РКО)", "Бизнес-карта", "Эквайринг", "Депозит для бизнеса", "Зарплатный проект", "Гарантии", "Онлайн-банк для бизнеса", "Другое"]'),
+  ('products', '["Кредит", "Депозит", "Страховка", "Halyk Market", "Кредитная карта", "Другое"]'),
   ('deadlines', '{}')
 on conflict (key) do nothing;
 
